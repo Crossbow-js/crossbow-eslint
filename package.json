@@ -1,7 +1,7 @@
 {
   "name": "crossbow-eslint",
-  "version": "1.0.2",
-  "description": "Babel + Browserify",
+  "version": "1.0.0",
+  "description": "Lint your JS with eslint",
   "main": "index.js",
   "scripts": {
     "test": "node example.js"
