@@ -16,6 +16,7 @@ function eslintJs (deferred, previous, ctx) {
 
     var input  = ctx.path.make('eslint', 'input');
     var user   = ctx.options.get('eslint');
+
     var config = {
         envs: ['es6', 'node'],
         rules: {
@@ -23,12 +24,22 @@ function eslintJs (deferred, previous, ctx) {
         }
     };
 
-    ctx.vfs.src(input)
-        .pipe(eslint(user || config))
-        .pipe(eslint.format())
-        .on('finish', deferred.resolve)
-        .on('error', deferred.reject);
+    var src = ctx.vfs.src(input);
 
+
+    if (ctx.trigger.type === 'command') {
+        src.pipe(eslint(user || config))
+            .pipe(eslint.format())
+            .pipe(eslint.failOnError())
+            .on('finish', deferred.resolve)
+            .on('error', function (err) {
+                console.log(err.message);
+            });
+    } else {
+        src.pipe(eslint(user || config))
+            .pipe(eslint.format())
+            .on('finish', deferred.resolve);
+    }
 }
 
 /**
