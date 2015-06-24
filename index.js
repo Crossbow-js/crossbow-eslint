@@ -1,4 +1,5 @@
 var eslint  = require('gulp-eslint');
+var resolve = require('path').resolve;
 
 /**
  * Define the tasks that make up a build
@@ -24,21 +25,19 @@ function eslintJs (deferred, previous, ctx) {
         }
     };
 
-    var src = ctx.vfs.src(input);
-
-
-    if (ctx.trigger.type === 'command') {
-        src.pipe(eslint(user || config))
+    if (ctx.trigger.type === 'watcher') {
+        ctx.vfs.src(ctx.trigger.filepath)
+            .pipe(eslint(user || config))
             .pipe(eslint.format())
-            .pipe(eslint.failOnError())
             .on('finish', deferred.resolve)
-            .on('error', function (err) {
-                console.log(err.message);
-            });
+            .on('error', deferred.reject);
     } else {
-        src.pipe(eslint(user || config))
+        ctx.vfs.src(input)
+            .pipe(eslint(user || config))
             .pipe(eslint.format())
-            .on('finish', deferred.resolve);
+            .pipe(eslint.failAfterError())
+            .on('end', deferred.resolve)
+            .on('error', deferred.reject);
     }
 }
 
