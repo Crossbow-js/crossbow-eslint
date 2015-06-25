@@ -3,6 +3,10 @@
   "version": "1.0.3",
   "description": "Lint your JS with eslint",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "example.js"
+  ],
   "scripts": {
     "test": "node example.js"
   },

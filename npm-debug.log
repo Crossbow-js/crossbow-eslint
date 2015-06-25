@@ -1,0 +1,95 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.2
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 silly cache add args [ '.', null ]
+7 verbose cache add spec .
+8 silly cache add parsed spec { raw: '.',
+8 silly cache add   scope: null,
+8 silly cache add   name: null,
+8 silly cache add   rawSpec: '.',
+8 silly cache add   spec: '/Users/shakyshane/crossbow/crossbow-eslint',
+8 silly cache add   type: 'directory' }
+9 verbose addLocalDirectory /Users/shakyshane/.npm/crossbow-eslint/1.0.3/package.tgz not in flight; packing
+10 verbose tar pack [ '/Users/shakyshane/.npm/crossbow-eslint/1.0.3/package.tgz',
+10 verbose tar pack   '/Users/shakyshane/crossbow/crossbow-eslint' ]
+11 verbose tarball /Users/shakyshane/.npm/crossbow-eslint/1.0.3/package.tgz
+12 verbose folder /Users/shakyshane/crossbow/crossbow-eslint
+13 info prepublish crossbow-eslint@1.0.3
+14 verbose addLocalTarball adding from inside cache /Users/shakyshane/.npm/crossbow-eslint/1.0.3/package.tgz
+15 silly cache afterAdd crossbow-eslint@1.0.3
+16 verbose afterAdd /Users/shakyshane/.npm/crossbow-eslint/1.0.3/package/package.json not in flight; writing
+17 verbose afterAdd /Users/shakyshane/.npm/crossbow-eslint/1.0.3/package/package.json written
+18 silly publish { name: 'crossbow-eslint',
+18 silly publish   version: '1.0.3',
+18 silly publish   description: 'Lint your JS with eslint',
+18 silly publish   main: 'index.js',
+18 silly publish   scripts: { test: 'node example.js' },
+18 silly publish   author: '',
+18 silly publish   license: 'ISC',
+18 silly publish   crossbow:
+18 silly publish    { tasks: { build: [Object] },
+18 silly publish      watch: { 'bs-config': [Object], tasks: [Object] },
+18 silly publish      config: { eslint: [Object] } },
+18 silly publish   dependencies: { 'gulp-eslint': '^0.13.2' },
+18 silly publish   devDependencies:
+18 silly publish    { 'browser-sync': '^2.7.10',
+18 silly publish      'prom-seq': '^1.3.0',
+18 silly publish      rimraf: '^2.4.0' },
+18 silly publish   gitHead: '151cf67da52e46e20e9e1c795060efaf58ce0c76',
+18 silly publish   readme: 'ERROR: No README data found!',
+18 silly publish   _id: 'crossbow-eslint@1.0.3',
+18 silly publish   _shasum: '2df22679e07778848b035458d3bfe9dd2b389ae2',
+18 silly publish   _from: '.' }
+19 verbose getPublishConfig undefined
+20 silly mapToRegistry name crossbow-eslint
+21 silly mapToRegistry using default registry
+22 silly mapToRegistry registry https://registry.npmjs.org/
+23 silly mapToRegistry uri https://registry.npmjs.org/crossbow-eslint
+24 verbose publish registryBase https://registry.npmjs.org/
+25 silly publish uploading /Users/shakyshane/.npm/crossbow-eslint/1.0.3/package.tgz
+26 verbose request uri https://registry.npmjs.org/crossbow-eslint
+27 verbose request sending authorization for write operation
+28 info attempt registry request try #1 at 14:24:42
+29 verbose request using bearer token for auth
+30 verbose request id 704cd95302309f52
+31 http request PUT https://registry.npmjs.org/crossbow-eslint
+32 http 403 https://registry.npmjs.org/crossbow-eslint
+33 verbose headers { 'content-type': 'application/json',
+33 verbose headers   'cache-control': 'max-age=60',
+33 verbose headers   'content-length': '95',
+33 verbose headers   'accept-ranges': 'bytes',
+33 verbose headers   date: 'Thu, 25 Jun 2015 13:24:42 GMT',
+33 verbose headers   via: '1.1 varnish',
+33 verbose headers   connection: 'keep-alive',
+33 verbose headers   'x-served-by': 'cache-fra1221-FRA',
+33 verbose headers   'x-cache': 'MISS',
+33 verbose headers   'x-cache-hits': '0',
+33 verbose headers   'x-timer': 'S1435238682.150204,VS0,VE718' }
+34 verbose request invalidating /Users/shakyshane/.npm/registry.npmjs.org/crossbow-eslint on PUT
+35 error publish Failed PUT 403
+36 verbose stack Error: "You cannot publish over the previously published version 1.0.3." : crossbow-eslint
+36 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:247:14)
+36 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:170:14)
+36 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:354:22)
+36 verbose stack     at Request.emit (events.js:110:17)
+36 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1207:14)
+36 verbose stack     at Request.emit (events.js:129:20)
+36 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1153:12)
+36 verbose stack     at IncomingMessage.emit (events.js:129:20)
+36 verbose stack     at _stream_readable.js:908:16
+36 verbose stack     at process._tickCallback (node.js:355:11)
+37 verbose statusCode 403
+38 verbose pkgid crossbow-eslint
+39 verbose cwd /Users/shakyshane/crossbow/crossbow-eslint
+40 error Darwin 14.3.0
+41 error argv "node" "/usr/local/bin/npm" "publish"
+42 error node v0.12.2
+43 error npm  v2.11.3
+44 error code E403
+45 error "You cannot publish over the previously published version 1.0.3." : crossbow-eslint
+46 error If you need help, you may report this error at:
+46 error     <https://github.com/npm/npm/issues>
+47 verbose exit [ 1, true ]
