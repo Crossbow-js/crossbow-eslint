@@ -1,13 +1,16 @@
 var cli    = require("./index");
-var del    = require('rimraf').sync;
-var assert = require('assert');
-var exists = require('fs').existsSync;
-var prom   = require('prom-seq');
+var crossbowCli = require('/Users/shakyshane/crossbow/crossbow-cli');
+var del  = require('rimraf').sync;
+var prom = require('prom-seq');
 
-del('test/fixtures/dist');
+var task    = prom.create(cli.tasks);
+var pk      = require("./package.json");
 
-var task = prom.create(cli.tasks);
+crossbowCli({input: ['watch']});
 
-task('', require('crossbow-ctx')()).then(function () {
-    console.log('Build complete');
-}).done();
+//var context = crossbowCli.ctx(pk);
+
+//task('', context)
+//    .then(function () {
+//        console.log('Build complete');
+//    }).done();
