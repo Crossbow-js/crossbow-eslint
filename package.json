@@ -1,6 +1,6 @@
 {
   "name": "crossbow-eslint",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Lint your JS with eslint",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,18 @@
   "license": "ISC",
   "crossbow": {
     "tasks": {
-      "build": ["eslint"]
+      "build": [
+        "eslint"
+      ]
     },
     "watch": {
       "bs-config": {
         "server": "test/fixtures"
       },
       "tasks": {
-        "test/fixtures/*.js": ["index.js as eslint"]
+        "test/fixtures/*.js": [
+          "index.js as eslint"
+        ]
       }
     },
     "config": {
